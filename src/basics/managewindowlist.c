@@ -6,13 +6,13 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 07:16:24 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 08:10:25 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/27 17:34:32 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <basics.h>
 
-t_win_list	*windowlistnew(t_win *window)
+t_win_list				*windowlistnew(t_win *window)
 {
 	t_win_list	*new;
 
@@ -23,9 +23,10 @@ t_win_list	*windowlistnew(t_win *window)
 	return (new);
 }
 
-t_win_list	*windowlistadd(t_win_list *head, t_win *window)
+t_win_list				*windowlistadd(t_win_list *head, t_win *window)
 {
-	t_win_list	*tmp;
+	t_win_list			*tmp;
+
 	if (head == NULL)
 		head = windowlistnew(window);
 	else
@@ -38,7 +39,7 @@ t_win_list	*windowlistadd(t_win_list *head, t_win *window)
 	return (head);
 }
 
-void		windowlistprint(t_win_list *head)
+void					windowlistprint(t_win_list *head)
 {
 	if (head)
 	{
@@ -49,9 +50,9 @@ void		windowlistprint(t_win_list *head)
 	}
 }
 
-void		*managewindowlist(int macro)
+void					*managewindowlist(int macro)
 {
-	static t_win_list		*head;
+	static t_win_list	*head;
 
 	if (macro == ADD)
 		head = windowlistadd(head, managewindow(GET));

@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 08:15:08 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 17:01:03 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/27 17:30:57 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <libft.h>
 
 /*
-** CLASSIC OPTGET STRING FORMAT:
-** "x:y:" | "abc:"
-**
-** SPECIAL FORMAT
-** "!file" expect a single filename, caught by env.ch == '!'
+** CLASSIC OPTGET STRING FORMAT: "x:y:" | "abc:"
+*/
+
+/*
+** SPECIAL FORMAT "!file" expect a single filename, caught by env.ch == '!'
 */
 
 typedef struct	s_env
@@ -34,14 +34,14 @@ typedef struct	s_env
 	char		*str;
 }				t_env;
 
-t_env	*manageenv(int macro);
+t_env			*manageenv(int macro);
 
-typedef struct
+typedef struct	s_file
 {
-	char	*str;
-	void	*next;
-}			t_file;
+	char		*str;
+	void		*next;
+}				t_file;
 
-void	*managefile(int macro);
+void			*managefile(int macro);
 
 #endif

@@ -6,19 +6,19 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 08:19:18 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 08:28:27 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/27 17:25:27 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENUM_H
 # define ENUM_H
 
-enum e_macro
+enum	e_macro
 {
 	NEW, SET, GET, DEL, ADD, PRINT
 };
 
-enum e_int
+enum	e_int
 {
 	WIDTH, HEIGHT
 };

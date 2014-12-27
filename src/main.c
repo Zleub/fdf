@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 02:42:24 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 17:06:17 by adebray          ###   ########.fr       */
+/*   Created: 2014/12/27 14:43:26 by adebray           #+#    #+#             */
+/*   Updated: 2014/12/27 17:35:05 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-
 #include <env.h>
 #include <basics.h>
 
@@ -21,7 +20,7 @@ void		ft_getfile(int fd)
 		managefile(ADD);
 }
 
-int		ft_getopt(int argc, char **argv)
+int			ft_getopt(int argc, char **argv)
 {
 	int		fd;
 	t_env	*env;
@@ -39,19 +38,24 @@ int		ft_getopt(int argc, char **argv)
 	else
 	{
 		if ((fd = open(env->str, O_RDONLY)) == -1)
+		{
+			ft_printf("USAGE PUTE\n");
 			return (-1);
+		}
 		else
 			ft_getfile(fd);
 	}
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
-	ft_getopt(argc, argv);
+	if (ft_getopt(argc, argv) == -1)
+		return (0);
 	managefile(PRINT);
 	managemlx(NEW);
 	managewindow(NEW);
+	mlx_pixel_put(managemlx(GET), managewindow(GET), 10, 10, 0x777777);
 	mlx_loop(managemlx(GET));
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 04:14:12 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 16:26:27 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/27 17:33:11 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <basics.h>
 
-t_win	*newwindow(int macro, int _int)
+t_win	*newwindow(int macro, int this_int)
 {
 	char		*name;
 	static int	cmp;
@@ -21,9 +21,9 @@ t_win	*newwindow(int macro, int _int)
 	void		*window;
 
 	if (macro == WIDTH)
-		width = _int;
+		width = this_int;
 	else if (macro == HEIGHT)
-		height = _int;
+		height = this_int;
 	if (width == 0)
 		width = 640;
 	if (height == 0)

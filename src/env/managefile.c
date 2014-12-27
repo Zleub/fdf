@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:57:58 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 17:06:30 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/27 17:33:57 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	fileprint(t_file *head)
 {
 	if (head)
 	{
-		// ft_printf("%p\n", head);
+		ft_printf("%p\n", head);
 		ft_printf("%s\n", head->str);
-		// ft_printf("%p\n", head->next);
+		ft_printf("%p\n", head->next);
 		fileprint(head->next);
 	}
 }
