@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basics.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arno <Arno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/29 11:39:02 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/28 17:12:51 by Arno             ###   ########.fr       */
+/*   Updated: 2014/12/28 23:16:54 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,29 @@ typedef struct			s_win_list
 	struct s_win_list	*next;
 }						t_win_list;
 
+typedef void			t_mlximg;
+
+typedef struct			s_image
+{
+	int					width;
+	int					height;
+	int					color;
+	int					x;
+	int					y;
+	int					radius;
+	t_mlximg			*mlximg;
+}						t_image;
+
 typedef struct			s_image_list
 {
-	void				*image;
+	t_mlximg			*image;
 	struct s_image_list	*next;
 }						t_image_list;
 
 void					*managemlx(int macro);
 void					*managewindow(int macro);
 void					*managewindowlist(int macro);
-void					*manageimagelist(int macro);
+t_image					*manageimage(int macro);
+t_image_list			*manageimagelist(int macro);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 08:15:08 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/27 17:30:57 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/29 04:06:02 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 
 /*
 ** CLASSIC OPTGET STRING FORMAT: "x:y:" | "abc:"
-*/
-
-/*
 ** SPECIAL FORMAT "!file" expect a single filename, caught by env.ch == '!'
 */
 

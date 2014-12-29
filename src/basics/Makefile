@@ -16,7 +16,9 @@ HEADDIR		=	../../inc
 
 SRC			=	managemlx.c\
 				managewindow.c\
-				managewindowlist.c
+				managewindowlist.c\
+				manageimage.c\
+				manageimagelist.c
 
 OBJ			= $(subst .c,.o,$(SRC))
 
