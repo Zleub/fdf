@@ -18,7 +18,8 @@ SRC			=	managemlx.c\
 				managewindow.c\
 				managewindowlist.c\
 				manageimage.c\
-				manageimagelist.c
+				manageimagelist.c\
+					imagedraw.c\
 
 OBJ			= $(subst .c,.o,$(SRC))
 

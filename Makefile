@@ -29,13 +29,13 @@ LIBX11		= -L$(SRCDIR)/minilibx -lmlx -L/usr/X11/lib -lXext -lX11
 
 LIBFLAG		= $(LIBLIBFT) $(LIBPRINTF) $(LIBBASIC) $(LIBX11) $(LIBENV)
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re $(NAME)
 
-all:		$(NAME)
+all:		makelib $(NAME)
 
 makelib:	_libft_old _libft _printf _basic _env _minilibx
 
-$(NAME):	makelib $(OBJ) $(HEADDIR)/info.h
+$(NAME):	$(OBJ) $(HEADDIR)/info.h
 			@$(CC) $(CCFLAGS) $(HEADFLAG) $(LIBFLAG) -o $(NAME) $(OBJ)
 			@echo '!'
 			@echo "\033[32m•\033[0m compil: \033[32m$(NAME)\033[0m"

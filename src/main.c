@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:43:26 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/29 04:04:52 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/30 11:56:18 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,35 +54,37 @@ int			main(int argc, char **argv)
 
 	if (ft_getopt(argc, argv) == -1)
 		return (0);
-	managemlx(NEW);
+	if (!(managemlx(NEW)))
+		return (0);
 	managewindow(NEW);
 
 	image = manageimage(GET);
-
 	image->color = 0xff0000;
 	image->width = 500;
 	image->height = 500;
 	image->radius = 250;
 	image->x = 0;
-	image->y = 0;
-	manageimage(NEW);
 	manageimage(CIR);
 	manageimage(PUT);
 
-	image->width = 100;
-	image->height = 100;
-	manageimage(NEW);
-	image->color = 0x00ffee;
-	manageimage(SQR);
 	image->x = 100;
 	image->y = 100;
-	manageimage(PUT);
+	image->width = 100;
+	image->height = 100;
+	image->color = 0x00ffee;
+	manageimage(SQR);
 	image->color = 0xeeff00;
 	image->radius = 25;
 	manageimage(CIR);
 	manageimage(PUT);
 
-
+	image->x = 300;
+	image->y = 100;
+	image->xto = 50;
+	image->yto = 250;
+	image->color = 0xeeffee;
+	manageimage(LIN);
+	manageimage(PUT);
 
 	manageimagelist(PRINT);
 	mlx_loop(managemlx(GET));

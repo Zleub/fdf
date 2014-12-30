@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/29 11:39:02 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/28 23:16:54 by adebray          ###   ########.fr       */
+/*   Updated: 2014/12/30 11:05:15 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,20 @@ typedef void			t_mlximg;
 
 typedef struct			s_image
 {
+	int					color;
+	// SQR
 	int					width;
 	int					height;
-	int					color;
+	// POSITION
 	int					x;
 	int					y;
+	// LIN
+	int					xto;
+	int					yto;
+	// CIR
 	int					radius;
+	// INTERN
+	char				put;
 	t_mlximg			*mlximg;
 }						t_image;
 
@@ -51,5 +59,6 @@ void					*managewindow(int macro);
 void					*managewindowlist(int macro);
 t_image					*manageimage(int macro);
 t_image_list			*manageimagelist(int macro);
+void					imagedraw(int macro, t_image *current);
 
 #endif
