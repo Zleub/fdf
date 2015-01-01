@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:43:26 by adebray           #+#    #+#             */
-/*   Updated: 2015/01/01 08:32:33 by adebray          ###   ########.fr       */
+/*   Updated: 2015/01/01 09:07:43 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int			main(int argc, char **argv)
 	managewindow(NEW);
 
 	image = manageimage(GET);
-	// image->width = 640;
-	// image->height = 480;
-	// manageimage(NEW);
+	image->width = 640;
+	image->height = 480;
+	manageimage(NEW);
 
 	image->x = 100;
 	image->y = 250;
@@ -69,31 +69,34 @@ int			main(int argc, char **argv)
 	image->yto = 400;
 	image->color = 0xff0000;
 	manageimage(LIN);
+	image->x = 0;
+	image->y = 0;
 	manageimage(PUT);
 
-	image->y = 100;
-	image->x = 250;
-	image->yto = 20;
-	image->xto = 400;
-	image->color = 0x0000ff;
-	manageimage(LIN);
-	manageimage(PUT);
 
-	image->x = 200;
-	image->y = 210;
-	image->xto = 201;
-	image->yto = 300;
-	image->color = 0x00ff00;
-	manageimage(LIN);
-	manageimage(PUT);
+	// image->y = 100;
+	// image->x = 250;
+	// image->yto = 20;
+	// image->xto = 400;
+	// image->color = 0x0000ff;
+	// manageimage(LIN);
+	// manageimage(PUT);
 
-	image->x = 300;
-	image->y = 100;
-	image->xto = 500;
-	image->yto = 250;
-	image->color = 0xffffff;
-	manageimage(LIN);
-	manageimage(PUT);
+	// image->x = 200;
+	// image->y = 210;
+	// image->xto = 201;
+	// image->yto = 300;
+	// image->color = 0x00ff00;
+	// manageimage(LIN);
+	// manageimage(PUT);
+
+	// image->x = 250;
+	// image->y = 50;
+	// image->xto = 500;
+	// image->yto = 250;
+	// image->color = 0xffffff;
+	// manageimage(LIN);
+	// manageimage(PUT);
 
 	// t_file *file = managefile(GET);
 	// int i;
