@@ -6,13 +6,15 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:43:26 by adebray           #+#    #+#             */
-/*   Updated: 2015/01/01 09:07:43 by adebray          ###   ########.fr       */
+/*   Updated: 2015/01/02 00:03:37 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <env.h>
 #include <basics.h>
+
+#include <stdio.h>
 
 void		ft_getfile(int fd)
 {
@@ -59,19 +61,31 @@ int			main(int argc, char **argv)
 	managewindow(NEW);
 
 	image = manageimage(GET);
+	image->x = 0;
+	image->y = 0;
 	image->width = 640;
 	image->height = 480;
 	manageimage(NEW);
 
-	image->x = 100;
-	image->y = 250;
-	image->xto = 20;
-	image->yto = 400;
-	image->color = 0xff0000;
-	manageimage(LIN);
-	image->x = 0;
-	image->y = 0;
+	image->color = 0xee4477;
+	image->geometry.radius = 50;
+	manageimage(CIR);
+	image->color = 0xee4477 / 3;
+	image->geometry.radius = 25;
+	manageimage(CIR);
+
 	manageimage(PUT);
+
+	// image->color = 0xff0000;
+	// image->geometry.x1 = 100;
+	// image->geometry.y1 = 250;
+	// image->geometry.x2 = 20;
+	// image->geometry.y2 = 400;
+
+
+
+	// manageimage(LIN);
+	// manageimage(PUT);
 
 
 	// image->y = 100;

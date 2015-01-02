@@ -20,6 +20,7 @@ SRC			=	managemlx.c\
 				manageimage.c\
 				manageimagelist.c\
 					imagedraw.c\
+					drawdiagonals.c
 
 OBJ			= $(subst .c,.o,$(SRC))
 

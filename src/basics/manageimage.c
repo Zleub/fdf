@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 19:42:06 by adebray           #+#    #+#             */
-/*   Updated: 2014/12/30 11:04:27 by adebray          ###   ########.fr       */
+/*   Updated: 2015/01/02 00:06:19 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,28 @@ void		imagenew(t_image *image)
 	image->mlximg = mlx_new_image(managemlx(GET), image->width, image->height);
 }
 
-void		imageprint(t_image image)
+void		geometryprint(t_geometry *geometry)
+{
+	ft_printf("%p\n", geometry);
+	ft_printf("geometry->x1: %d\n", geometry->x1);
+	ft_printf("geometry->y1: %d\n", geometry->y1);
+	ft_printf("geometry->x2: %d\n", geometry->x2);
+	ft_printf("geometry->y2: %d\n", geometry->y2);
+	ft_printf("geometry->radius: %d\n", geometry->radius);
+}
+
+void		imageprint(t_image *image)
 {
 	ft_printf("%p\n", image);
-	ft_printf("image.color: %d\n", image.color);
-	ft_printf("image.width: %d\n", image.width);
-	ft_printf("image.height: %d\n", image.height);
-	ft_printf("image.x: %d\n", image.x);
-	ft_printf("image.y: %d\n", image.y);
-	ft_printf("image.xto: %d\n", image.xto);
-	ft_printf("image.yto: %d\n", image.yto);
-	ft_printf("image.radius: %d\n", image.radius);
+	ft_printf("image->color: %d\n", image->color);
+	ft_printf("image->x: %d\n", image->x);
+	ft_printf("image->y: %d\n", image->y);
+	ft_printf("image->width: %d\n", image->width);
+	ft_printf("image->height: %d\n", image->height);
+	ft_printf("image->put: %d\n", image->put);
+	ft_printf("image->mlximg: %p\n", image->mlximg);
+	ft_printf("image->geometry: %p\n", image->geometry);
+	geometryprint(&image->geometry);
 }
 
 t_image		*manageimage(int macro)
@@ -42,7 +53,7 @@ t_image		*manageimage(int macro)
 	if (macro == GET)
 		return (&current);
 	else if (macro == PRINT)
-		imageprint(current);
+		imageprint(&current);
 	else if (macro == NEW)
 	{
 		imagenew(&current);
