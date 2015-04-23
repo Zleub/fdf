@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:43:26 by adebray           #+#    #+#             */
-/*   Updated: 2015/01/02 00:03:37 by adebray          ###   ########.fr       */
+/*   Updated: 2015/04/23 22:01:52 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,53 @@ int			ft_getopt(int argc, char **argv)
 	return (0);
 }
 
+int		key_hook(int keycode, void *param)
+{
+	(void)param;
+	printf("-> %d\n", keycode);
+	if (keycode == 53)
+		exit(-1);
+	return (0);
+}
+
+void		drawLine(int x1, int y1, int x2, int y2)
+{
+	ft_printf("drawLine\n");
+	ft_printf("%d, %d, %d, %d\n", x1, y1, x2, y2);
+	ft_printf("%d, %d\n", x2 - x1, y2 - y1);
+
+	int x_vector = x2 - x1;
+	int y_vector = y2 - y1;
+
+	// int coeff = x_vector / y_vector;
+	// int rest = x_vector % y_vector;
+
+	ft_printf("x_vector / y_vector : %d\n", x_vector / y_vector);
+	ft_printf("x_vector %% y_vector : %d\n", x_vector % y_vector);
+	ft_printf("y_vector / x_vector : %d\n", y_vector / x_vector);
+	ft_printf("y_vector %% x_vector : %d\n", y_vector % x_vector);
+
+	// int tmp;
+	// while (y_vector)
+	// {
+	// 	tmp = coeff;
+	// 	if (x_vector)
+	// 	{
+	// 		mlx_pixel_put(managemlx(GET), managewindow(GET), x1 + x_vector, y1 + y_vector, 0xee4477);
+	// 		tmp -= 1;
+	// 		x_vector -= 1;
+	// 	}
+	// 	y_vector -= 1;
+	// }
+
+	mlx_pixel_put(managemlx(GET), managewindow(GET), x1 , y1 , 0x44ee77);
+	mlx_pixel_put(managemlx(GET), managewindow(GET), x2 , y2 , 0x44ee77);
+
+}
+
 int			main(int argc, char **argv)
 {
-	t_image *image;
+	// t_image *image;
 
 	if (ft_getopt(argc, argv) == -1)
 		return (0);
@@ -60,76 +104,24 @@ int			main(int argc, char **argv)
 		return (0);
 	managewindow(NEW);
 
-	image = manageimage(GET);
-	image->x = 0;
-	image->y = 0;
-	image->width = 640;
-	image->height = 480;
-	manageimage(NEW);
+	mlx_key_hook(managewindow(GET),key_hook, NULL);
 
-	image->color = 0xee4477;
-	image->geometry.radius = 50;
-	manageimage(CIR);
-	image->color = 0xee4477 / 3;
-	image->geometry.radius = 25;
-	manageimage(CIR);
+	managefile(PRINT);
+	// manageimagelist(PRINT);
 
-	manageimage(PUT);
+	// [x1, y1 ; x2, y2]
+	// [ 0,  0 ; 10, 10]
+	// [ 10, 10 ; 0,  0]
+	// [ 10, 0 ; 10,  0]
 
-	// image->color = 0xff0000;
-	// image->geometry.x1 = 100;
-	// image->geometry.y1 = 250;
-	// image->geometry.x2 = 20;
-	// image->geometry.y2 = 400;
+	// int i = 0;
+	// int j = 0;
 
+	drawLine(100, 100, 200, 120);
+	drawLine(100, 100, 120, 200);
+	drawLine(35, 50, 100, 100);
+	drawLine(50, 35, 100, 100);
 
-
-	// manageimage(LIN);
-	// manageimage(PUT);
-
-
-	// image->y = 100;
-	// image->x = 250;
-	// image->yto = 20;
-	// image->xto = 400;
-	// image->color = 0x0000ff;
-	// manageimage(LIN);
-	// manageimage(PUT);
-
-	// image->x = 200;
-	// image->y = 210;
-	// image->xto = 201;
-	// image->yto = 300;
-	// image->color = 0x00ff00;
-	// manageimage(LIN);
-	// manageimage(PUT);
-
-	// image->x = 250;
-	// image->y = 50;
-	// image->xto = 500;
-	// image->yto = 250;
-	// image->color = 0xffffff;
-	// manageimage(LIN);
-	// manageimage(PUT);
-
-	// t_file *file = managefile(GET);
-	// int i;
-	// while (file)
-	// {
-	// 	i = 0;
-	// 	while (file->str[i])
-	// 	{
-	// 		while (ft_isspace(file->str[i]))
-	// 			i += 1;
-	// 		ft_printf("%d\n", ft_atoi(&file->str[i]));
-	// 		mlx_pixel_put(managemlx(GET), manageimage(GET), 10, 10, 0xff0000);
-	// 		i += 1;
-	// 	}
-	// 	file = file->next;
-	// }
-	// manageimage(PUT);
-
-	manageimagelist(PRINT);
 	mlx_loop(managemlx(GET));
 	return (0);
 }
